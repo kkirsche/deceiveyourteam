@@ -1,0 +1,6 @@
+baseurl = "http://deceiveyour.team/"
+languageCode = "en-us"
+title = "Deceive Your Team: CyberSecurity Blog"
+
+[Params]
+  Author = "Kevin Kirsche"
