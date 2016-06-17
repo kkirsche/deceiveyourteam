@@ -1,9 +1,25 @@
 baseurl = "http://deceiveyour.team/"
 languageCode = "en-us"
-title = "Deceive Your Team: CyberSecurity Blog"
+title = "Deceive Your Team"
 
 [Params]
   Author = "Kevin Kirsche"
+  Subtitle = "CyberSecurity Blog"
   googleAnalyticsUserID = "UA-79496957-1"
   gravatarHash = "8236e6bf25c6e147dd610fe419200fe8"
+  twitter = "kkirsche"
   cover = "images/cover.jpg"
+
+  [[menu.main]]
+      name = "1. Home"
+      pre = "<i class='fa fa-heart'></i>"
+      weight = -110
+      identifier = "home"
+      url = "/"
+
+[[menu.main]]
+    name = "2. About"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -110
+    identifier = "about"
+    url = "/page/about/"

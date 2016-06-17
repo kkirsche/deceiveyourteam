@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Deceive Your Team</title>
+    <link>http://deceiveyour.team/tags/about/</link>
+    <description>Recent content in About on Deceive Your Team</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Jun 2016 10:36:04 -0400</lastBuildDate>
+    <atom:link href="http://deceiveyour.team/tags/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About Deceive Your Team</title>
+      <link>http://deceiveyour.team/page/about/</link>
+      <pubDate>Fri, 17 Jun 2016 10:36:04 -0400</pubDate>
+      
+      <guid>http://deceiveyour.team/page/about/</guid>
+      <description>&lt;p&gt;Put together by security professionals, Deceive Your Team isn&amp;rsquo;t your typical cyber security blog. We take on security with an offensive mindset, believe you have to break it to understand it. To be well rounded, we cover network security, open source, forensics, reverse engineering, and more. All of this packaged up with a love for beer. To hell with rules, let&amp;rsquo;s have some fun.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
