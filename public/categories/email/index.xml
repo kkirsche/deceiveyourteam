@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Deceive Your Team: CyberSecurity Blog</title>
-    <link>http://deceiveyour.team/</link>
-    <description>Recent content on Deceive Your Team: CyberSecurity Blog</description>
+    <title>Email on Deceive Your Team: CyberSecurity Blog</title>
+    <link>http://deceiveyour.team/categories/email/</link>
+    <description>Recent content in Email on Deceive Your Team: CyberSecurity Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Jun 2016 09:59:57 -0400</lastBuildDate>
-    <atom:link href="http://deceiveyour.team/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jun 2016 09:37:58 -0400</lastBuildDate>
+    <atom:link href="http://deceiveyour.team/categories/email/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>93% of Phishing Emails Deliver Ransomware</title>
       <link>http://deceiveyour.team/post/93-percent-phishing-ransomware/</link>
-      <pubDate>Fri, 17 Jun 2016 09:59:57 -0400</pubDate>
+      <pubDate>Fri, 17 Jun 2016 09:37:58 -0400</pubDate>
       
       <guid>http://deceiveyour.team/post/93-percent-phishing-ransomware/</guid>
       <description>&lt;p&gt;PhishMe, a security behavior management company based out of Virginia, released their &lt;a href=&#34;http://phishme.com/phishme-q1-2016-malware-review/&#34;&gt;First Quarter of 2016 Malware Report&lt;/a&gt;. The report begins by laying out the relative scale of phishing in the beginning of 2016, stating that there has been a 6.3 million email increase in global phishing which translates to a 789% increase (pg. 3, first paragraph).&lt;/p&gt;

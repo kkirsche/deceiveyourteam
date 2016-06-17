@@ -4,3 +4,6 @@ title = "Deceive Your Team: CyberSecurity Blog"
 
 [Params]
   Author = "Kevin Kirsche"
+  googleAnalyticsUserID = "UA-79496957-1"
+  gravatarHash = "8236e6bf25c6e147dd610fe419200fe8"
+  cover = "images/cover.jpg"
