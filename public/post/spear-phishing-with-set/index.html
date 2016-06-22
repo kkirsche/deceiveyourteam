@@ -7,30 +7,29 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <meta property="og:title" content=" 93% of Phishing Emails Deliver Ransomware &middot;  Deceive Your Team" />
+        <meta property="og:title" content=" Spear Phishing With SET on Kali Linux &middot;  Deceive Your Team" />
         <meta property="og:site_name" content="Deceive Your Team" />
-        <meta property="og:url" content="http://deceiveyour.team/post/93-percent-phishing-ransomware/" />
+        <meta property="og:url" content="http://deceiveyour.team/post/spear-phishing-with-set/" />
 
     
         <meta property="og:type" content="article" />
-        <meta property="og:article:published_time" content="2016-06-17T09:59:57-04:00" />
-        <meta property="og:article:tag" content="Phishing" />
-        <meta property="og:article:tag" content="PhishMe" />
-        <meta property="og:article:tag" content="Ransomware" />
+        <meta property="og:article:published_time" content="2016-06-21T18:30:44-04:00" />
+        <meta property="og:article:tag" content="phishing" />
+        <meta property="og:article:tag" content="kali" />
         
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@kkirsche" />
         <meta name="twitter:creator" content="@kkirsche" />
-        <meta name="twitter:title" content="93% of Phishing Emails Deliver Ransomware" />
-        <meta name="twitter:description" content="PhishMe states that 93% of phishing emails collected were intended to infect victims with ransomware." />
-        <meta name="twitter:url" content="http://deceiveyour.team/post/93-percent-phishing-ransomware/" />
+        <meta name="twitter:title" content="Spear Phishing With SET on Kali Linux" />
+        <meta name="twitter:description" content="How to go spear phishing on Kali Linux with the Social Engineering Toolkit" />
+        <meta name="twitter:url" content="http://deceiveyour.team/post/spear-phishing-with-set/" />
     
 
-        <title> 93% of Phishing Emails Deliver Ransomware &middot;  Deceive Your Team</title>
+        <title> Spear Phishing With SET on Kali Linux &middot;  Deceive Your Team</title>
 
     
-        <meta name="description" content="PhishMe states that 93% of phishing emails collected were intended to infect victims with ransomware." />
+        <meta name="description" content="How to go spear phishing on Kali Linux with the Social Engineering Toolkit" />
     
 
         <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
@@ -46,21 +45,21 @@
     
 
     
-        <link rel="canonical" href="http://deceiveyour.team/post/93-percent-phishing-ransomware/" />
+        <link rel="canonical" href="http://deceiveyour.team/post/spear-phishing-with-set/" />
 
     
     <script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "93% of Phishing Emails Deliver Ransomware",
+        "headline": "Spear Phishing With SET on Kali Linux",
         "author": {
             "@type": "Person",
             "name": "http://profiles.google.com/?rel=author"
         },
-        "datePublished": "2016-06-17",
-        "description": "PhishMe states that 93% of phishing emails collected were intended to infect victims with ransomware.",
-        "wordCount":  102 
+        "datePublished": "2016-06-21",
+        "description": "How to go spear phishing on Kali Linux with the Social Engineering Toolkit",
+        "wordCount":  844 
     }
 
     </script>
@@ -113,16 +112,76 @@
 
   			<header class="post-header">
   				<span class="post-meta">
-						<span class="post-date">17 Jun 2016</span> <span class="reading-time">| <span class="estimated-reading-time">1 min.</span> (<span class="word-count">102</span> words)</span></span>
+						<span class="post-date">21 Jun 2016</span> <span class="reading-time">| <span class="estimated-reading-time">4 min.</span> (<span class="word-count">844</span> words)</span></span>
   				</span>
   				<div class="clear"></div>
-  				<h1 class="post-title">93% of Phishing Emails Deliver Ransomware</h1>
+  				<h1 class="post-title">Spear Phishing With SET on Kali Linux</h1>
   			</header>
 
   			<section class="post-content">
-  				<p>PhishMe, a security behavior management company based out of Virginia, released their <a href="http://phishme.com/phishme-q1-2016-malware-review/">First Quarter of 2016 Malware Report</a>. The report begins by laying out the relative scale of phishing in the beginning of 2016, stating that there has been a 6.3 million email increase in global phishing which translates to a 789% increase (pg. 3, first paragraph).</p>
+  				
 
-<p>Within the emails which were analyzed, there was a significant increase in the amount of ransomware that was distributed. PhishMe reports that currently 93% of all phishing emails are attempting to deliver ransomware, often the Locky (originally detected by Symantec as <a href="http://www.symantec.com/security_response/writeup.jsp?docid=2016-021706-1402-99">Trojan.Cryptolocker.AF</a> — <a href="http://www.symantec.com/connect/blogs/locky-ransomware-aggressive-hunt-victims">source</a>) variant.</p>
+<p>If you are new to security research, you may not be familiar with the <a href="https://www.trustedsec.com/social-engineer-toolkit/">Social Engineering Toolkit (SET)</a> by <a href="https://www.trustedsec.com/">TrustedSec</a>. Today, we&rsquo;ll be discussing how SET can be used to take advantage of humans during a penetration test.</p>
+
+<h1 id="what-is-social-engineering">What Is Social Engineering?</h1>
+
+<p>Social engineering is the activity of manipulating people into performing an action (such as clicking on a link to a malicious website) or divulging confidential information (such as sharing a customer&rsquo;s account information).</p>
+
+<p>In general, social engineering takes advantage of cognitive biases, sometimes referred to as bugs in human hardware, are exploited to create a number of different attack techniques. Today, we&rsquo;ll be talking about spear phishing.</p>
+
+<h1 id="spear-phishing-and-it-s-difference-from-phishing">Spear Phishing and It&rsquo;s Difference From Phishing</h1>
+
+<p>Spear phishing is a form of phishing which usually involves an attacker who is knowledgable about their target. These emails perform best when the attacker knows the end user&rsquo;s name, email address, and at least a little about you — such as where you work, who you are friends with, or what companies you interact with.</p>
+
+<p>So how does the attacker get this information? Often, attacker&rsquo;s are able to learn about you with information that you put on the internet, often via your laptop or smart phone. They may learn about you via social media services such as Twitter, Facebook, or LinkedIn and use information such as friend&rsquo;s lists or current employer to their advantage.</p>
+
+<h1 id="how-can-we-craft-a-spear-phishing-campaign">How Can We Craft A Spear Phishing Campaign</h1>
+
+<p>Today, we&rsquo;ll be using <a href="https://www.kali.org/">Kali Linux</a>, a linux distribution by <a href="https://www.offensive-security.com/">Offensive Security</a> focused on penetration testing. So let&rsquo;s get started!</p>
+
+<h2 id="prepare-the-phishing-email">Prepare the Phishing Email</h2>
+
+<p>First things first, we need to open the toolkit. To do this, we simply run the following command:</p>
+
+<pre><code>$ se-toolkit
+</code></pre>
+
+<p>This will open the main menu:</p>
+
+<p><img src="/images/set-main-screen.png" alt="Social Engineering Toolkit Main Menu" /></p>
+
+<p>From here, we select the first option by selecting <code>1</code> for Social-Engineering Attacks and hit enter. This will present the Social Engineering Toolkit attack menu:</p>
+
+<p><img src="/images/set-attack-menu.png" alt="Social Engineering Toolkit Attack Menu" /></p>
+
+<p>From here, we select the first option again using <code>1</code> then hitting enter to enter the Spear-Phishing Attack Vectors. This will open the Spear-Phishing submenu.</p>
+
+<p><img src="/images/set-spear-phishing-submenu.png" alt="Spear-Phishing Submenu" /></p>
+
+<p>For the purpose of this, we&rsquo;ll select the first option to begin a mass email attack. To select this, enter <code>1</code> again and then hit enter. This will open the email payload menu.</p>
+
+<p><img src="/images/set-spear-phishing-payload.png" alt="Spear-Phishing Payload Menu" /></p>
+
+<p>From this submenu, we select number <code>13</code>, <code>Adobe PDF Embedded EXE Social Engineering (NOJS)</code>. This is the default payload for this option. From here, you can either provide SET with a PDF which you would like to embed the payload in or you can use a blank PDF. For the purpose of this tutorial we will use option <code>2</code> to select the Built In Blank PDF. You&rsquo;ll then be presented with an options screen to select what type of payload you would like to embed:</p>
+
+<p><img src="/images/spear-phishing-pdf-exploit-selection.png" alt="Spear-Phishing PDF Exploit Selection Menu" /></p>
+
+<p>We&rsquo;ll select the second option which uses a <code>Windows Meterpreter Reverse_TCP</code>. This means that when the victim opens the PDF that we send, the PDF will create a reverse shell which connects back to our machine. This allows us to bypass many firewalls, as they often block inward connections, not outbound. After selecting this, you&rsquo;ll be asked for the IP address which the reverse shell should connect back to. This should be your machine&rsquo;s routable IP address from the victim machine. In this example, I will be using RFC1918 space to which will only work within my internal network.</p>
+
+<p>Next, we&rsquo;ll provide SET with our target port. We&rsquo;ll use the exploit default of port 443. SET will then create the payload for us. You&rsquo;ll then be asked if we want to set a filename. For this example, we&rsquo;ll use the default filename, in a real penetration test or spear phishing campaign, you would want to change the filename to something which the victim would actually look at. We select our choice of <code>1</code>, which represents the &ldquo;Keep the filename, I don&rsquo;t care&rdquo; option.</p>
+
+<p><img src="/images/set-spear-phishing-exploit-creation.png" alt="SET Spear Phishing Exploit Creation" /></p>
+
+<p>Next, we need to select how we plan to send this — either to one email address or as a large mass-mailer campaign. We&rsquo;ll be sending our phishing email to a single email address by selecting <code>1</code>. You&rsquo;ll then be asked if you would like to craft the email&rsquo;s design or use a built-in template. For simplicity, we will use a built in template using option <code>1</code>.</p>
+
+<p><img src="/images/set-template.png" alt="SET Email Template" /></p>
+
+<p>Available templates:
+<img src="/images/set-email-template-options.png" alt="SET Email Template Options" /></p>
+
+<p>For simplicity, we&rsquo;ll choose option <code>10</code> — Status Report. Depending on the victim, this may or may not work for your needs. Next, we are prompted for the email address we would like to send to. For this, we&rsquo;ll to an example address: deceiver[at]deceiveyour[dot]team. You&rsquo;ll then be asked if you would like to use gmail to send the email or use your own server. We want to use gmail to send our email. We will be prompted for a gmail address and password. You&rsquo;ll then be asked if you want to set this as a high priority email, which more often than not we do not.</p>
+
+<p>Next, you&rsquo;ll be prompted to start the listener. Next, just wait for the user to open the PDF and you&rsquo;ve successfully gotten a meterpreter shell on the victim&rsquo;s machine.</p>
 
   			</section>
 
@@ -130,22 +189,20 @@
   				<div class="post-tags">
             
             
-                <a href="http://deceiveyour.team//tags/phishing/">Phishing</a>
+                <a href="http://deceiveyour.team//tags/phishing/">phishing</a>
             
-                <a href="http://deceiveyour.team//tags/phishme/">PhishMe</a>
-            
-                <a href="http://deceiveyour.team//tags/ransomware/">Ransomware</a>
+                <a href="http://deceiveyour.team//tags/kali/">kali</a>
             
             
   				</div>
   				<div class="post-share">
-  					<a class="icon-twitter" href="https://twitter.com/share?text=93%25%20of%20Phishing%20Emails%20Deliver%20Ransomware&url=http%3a%2f%2fdeceiveyour.team%2fpost%2f93-percent-phishing-ransomware%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  					<a class="icon-twitter" href="https://twitter.com/share?text=Spear%20Phishing%20With%20SET%20on%20Kali%20Linux&url=http%3a%2f%2fdeceiveyour.team%2fpost%2fspear-phishing-with-set%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
   						<span>Twitter</span>
   					</a>
-  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fdeceiveyour.team%2fpost%2f93-percent-phishing-ransomware%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fdeceiveyour.team%2fpost%2fspear-phishing-with-set%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
   						<span>Facebook</span>
   					</a>
-  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fdeceiveyour.team%2fpost%2f93-percent-phishing-ransomware%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fdeceiveyour.team%2fpost%2fspear-phishing-with-set%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
   						<span>Google+</span>
   					</a>
   				</div>
@@ -162,16 +219,16 @@
 
 			<nav class="post-nav">
 				
-					<a class="post-nav-item post-nav-next" href="http://deceiveyour.team/post/spear-phishing-with-set/">
+				
+					<a class="post-nav-item post-nav-prev" href="http://deceiveyour.team/post/93-percent-phishing-ransomware/">
 						<section class="post-nav-teaser">
-							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
 							<span class="post-nav-info">
-								<h4 class="post-nav-title">Spear Phishing With SET on Kali Linux</h4>
-								<p class="post-nav-excerpt">How to go spear phishing on Kali Linux with the Social Engineering Toolkit&hellip;</p>
+								<h4 class="post-nav-title">93% of Phishing Emails Deliver Ransomware</h4>
+								<p class="post-nav-excerpt">PhishMe states that 93% of phishing emails collected were intended to infect victims with ransomware.&hellip;</p>
 							</span>
 						</section>
 					</a>
-				
 				
 				<div class="clear"></div>
 			</nav>
@@ -219,7 +276,16 @@
         <a class="menu-close" data-action="toc" data-target="toc"></a>
     </div>
     <div id="toc" class="menu-list">
-        
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#what-is-social-engineering">What Is Social Engineering?</a></li>
+<li><a href="#spear-phishing-and-it-s-difference-from-phishing">Spear Phishing and It&rsquo;s Difference From Phishing</a></li>
+<li><a href="#how-can-we-craft-a-spear-phishing-campaign">How Can We Craft A Spear Phishing Campaign</a>
+<ul>
+<li><a href="#prepare-the-phishing-email">Prepare the Phishing Email</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 

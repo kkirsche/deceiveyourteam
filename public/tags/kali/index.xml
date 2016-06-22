@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Deceive Your Team</title>
-    <link>http://deceiveyour.team/</link>
-    <description>Recent content on Deceive Your Team</description>
+    <title>Kali on Deceive Your Team</title>
+    <link>http://deceiveyour.team/tags/kali/</link>
+    <description>Recent content in Kali on Deceive Your Team</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Jun 2016 18:30:44 -0400</lastBuildDate>
-    <atom:link href="http://deceiveyour.team/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://deceiveyour.team/tags/kali/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Spear Phishing With SET on Kali Linux</title>
@@ -78,28 +78,6 @@
 &lt;p&gt;For simplicity, we&amp;rsquo;ll choose option &lt;code&gt;10&lt;/code&gt; — Status Report. Depending on the victim, this may or may not work for your needs. Next, we are prompted for the email address we would like to send to. For this, we&amp;rsquo;ll to an example address: deceiver[at]deceiveyour[dot]team. You&amp;rsquo;ll then be asked if you would like to use gmail to send the email or use your own server. We want to use gmail to send our email. We will be prompted for a gmail address and password. You&amp;rsquo;ll then be asked if you want to set this as a high priority email, which more often than not we do not.&lt;/p&gt;
 
 &lt;p&gt;Next, you&amp;rsquo;ll be prompted to start the listener. Next, just wait for the user to open the PDF and you&amp;rsquo;ve successfully gotten a meterpreter shell on the victim&amp;rsquo;s machine.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About Deceive Your Team</title>
-      <link>http://deceiveyour.team/page/about/</link>
-      <pubDate>Fri, 17 Jun 2016 10:36:04 -0400</pubDate>
-      
-      <guid>http://deceiveyour.team/page/about/</guid>
-      <description>&lt;p&gt;Put together by security professionals, Deceive Your Team isn&amp;rsquo;t your typical cyber security blog. We take on security with an offensive mindset, believe you have to break it to understand it. To be well rounded, we cover network security, open source, forensics, reverse engineering, and more. All of this packaged up with a love for beer. To hell with rules, let&amp;rsquo;s have some fun.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>93% of Phishing Emails Deliver Ransomware</title>
-      <link>http://deceiveyour.team/post/93-percent-phishing-ransomware/</link>
-      <pubDate>Fri, 17 Jun 2016 09:59:57 -0400</pubDate>
-      
-      <guid>http://deceiveyour.team/post/93-percent-phishing-ransomware/</guid>
-      <description>&lt;p&gt;PhishMe, a security behavior management company based out of Virginia, released their &lt;a href=&#34;http://phishme.com/phishme-q1-2016-malware-review/&#34;&gt;First Quarter of 2016 Malware Report&lt;/a&gt;. The report begins by laying out the relative scale of phishing in the beginning of 2016, stating that there has been a 6.3 million email increase in global phishing which translates to a 789% increase (pg. 3, first paragraph).&lt;/p&gt;
-
-&lt;p&gt;Within the emails which were analyzed, there was a significant increase in the amount of ransomware that was distributed. PhishMe reports that currently 93% of all phishing emails are attempting to deliver ransomware, often the Locky (originally detected by Symantec as &lt;a href=&#34;http://www.symantec.com/security_response/writeup.jsp?docid=2016-021706-1402-99&#34;&gt;Trojan.Cryptolocker.AF&lt;/a&gt; — &lt;a href=&#34;http://www.symantec.com/connect/blogs/locky-ransomware-aggressive-hunt-victims&#34;&gt;source&lt;/a&gt;) variant.&lt;/p&gt;
 </description>
     </item>
     

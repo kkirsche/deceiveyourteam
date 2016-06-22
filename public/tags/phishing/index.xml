@@ -6,8 +6,80 @@
     <description>Recent content in Phishing on Deceive Your Team</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Jun 2016 09:59:57 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jun 2016 18:30:44 -0400</lastBuildDate>
     <atom:link href="http://deceiveyour.team/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Spear Phishing With SET on Kali Linux</title>
+      <link>http://deceiveyour.team/post/spear-phishing-with-set/</link>
+      <pubDate>Tue, 21 Jun 2016 18:30:44 -0400</pubDate>
+      
+      <guid>http://deceiveyour.team/post/spear-phishing-with-set/</guid>
+      <description>
+
+&lt;p&gt;If you are new to security research, you may not be familiar with the &lt;a href=&#34;https://www.trustedsec.com/social-engineer-toolkit/&#34;&gt;Social Engineering Toolkit (SET)&lt;/a&gt; by &lt;a href=&#34;https://www.trustedsec.com/&#34;&gt;TrustedSec&lt;/a&gt;. Today, we&amp;rsquo;ll be discussing how SET can be used to take advantage of humans during a penetration test.&lt;/p&gt;
+
+&lt;h1 id=&#34;what-is-social-engineering&#34;&gt;What Is Social Engineering?&lt;/h1&gt;
+
+&lt;p&gt;Social engineering is the activity of manipulating people into performing an action (such as clicking on a link to a malicious website) or divulging confidential information (such as sharing a customer&amp;rsquo;s account information).&lt;/p&gt;
+
+&lt;p&gt;In general, social engineering takes advantage of cognitive biases, sometimes referred to as bugs in human hardware, are exploited to create a number of different attack techniques. Today, we&amp;rsquo;ll be talking about spear phishing.&lt;/p&gt;
+
+&lt;h1 id=&#34;spear-phishing-and-it-s-difference-from-phishing&#34;&gt;Spear Phishing and It&amp;rsquo;s Difference From Phishing&lt;/h1&gt;
+
+&lt;p&gt;Spear phishing is a form of phishing which usually involves an attacker who is knowledgable about their target. These emails perform best when the attacker knows the end user&amp;rsquo;s name, email address, and at least a little about you — such as where you work, who you are friends with, or what companies you interact with.&lt;/p&gt;
+
+&lt;p&gt;So how does the attacker get this information? Often, attacker&amp;rsquo;s are able to learn about you with information that you put on the internet, often via your laptop or smart phone. They may learn about you via social media services such as Twitter, Facebook, or LinkedIn and use information such as friend&amp;rsquo;s lists or current employer to their advantage.&lt;/p&gt;
+
+&lt;h1 id=&#34;how-can-we-craft-a-spear-phishing-campaign&#34;&gt;How Can We Craft A Spear Phishing Campaign&lt;/h1&gt;
+
+&lt;p&gt;Today, we&amp;rsquo;ll be using &lt;a href=&#34;https://www.kali.org/&#34;&gt;Kali Linux&lt;/a&gt;, a linux distribution by &lt;a href=&#34;https://www.offensive-security.com/&#34;&gt;Offensive Security&lt;/a&gt; focused on penetration testing. So let&amp;rsquo;s get started!&lt;/p&gt;
+
+&lt;h2 id=&#34;prepare-the-phishing-email&#34;&gt;Prepare the Phishing Email&lt;/h2&gt;
+
+&lt;p&gt;First things first, we need to open the toolkit. To do this, we simply run the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ se-toolkit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will open the main menu:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://deceiveyour.team/images/set-main-screen.png&#34; alt=&#34;Social Engineering Toolkit Main Menu&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From here, we select the first option by selecting &lt;code&gt;1&lt;/code&gt; for Social-Engineering Attacks and hit enter. This will present the Social Engineering Toolkit attack menu:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://deceiveyour.team/images/set-attack-menu.png&#34; alt=&#34;Social Engineering Toolkit Attack Menu&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From here, we select the first option again using &lt;code&gt;1&lt;/code&gt; then hitting enter to enter the Spear-Phishing Attack Vectors. This will open the Spear-Phishing submenu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://deceiveyour.team/images/set-spear-phishing-submenu.png&#34; alt=&#34;Spear-Phishing Submenu&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For the purpose of this, we&amp;rsquo;ll select the first option to begin a mass email attack. To select this, enter &lt;code&gt;1&lt;/code&gt; again and then hit enter. This will open the email payload menu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://deceiveyour.team/images/set-spear-phishing-payload.png&#34; alt=&#34;Spear-Phishing Payload Menu&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From this submenu, we select number &lt;code&gt;13&lt;/code&gt;, &lt;code&gt;Adobe PDF Embedded EXE Social Engineering (NOJS)&lt;/code&gt;. This is the default payload for this option. From here, you can either provide SET with a PDF which you would like to embed the payload in or you can use a blank PDF. For the purpose of this tutorial we will use option &lt;code&gt;2&lt;/code&gt; to select the Built In Blank PDF. You&amp;rsquo;ll then be presented with an options screen to select what type of payload you would like to embed:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://deceiveyour.team/images/spear-phishing-pdf-exploit-selection.png&#34; alt=&#34;Spear-Phishing PDF Exploit Selection Menu&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ll select the second option which uses a &lt;code&gt;Windows Meterpreter Reverse_TCP&lt;/code&gt;. This means that when the victim opens the PDF that we send, the PDF will create a reverse shell which connects back to our machine. This allows us to bypass many firewalls, as they often block inward connections, not outbound. After selecting this, you&amp;rsquo;ll be asked for the IP address which the reverse shell should connect back to. This should be your machine&amp;rsquo;s routable IP address from the victim machine. In this example, I will be using RFC1918 space to which will only work within my internal network.&lt;/p&gt;
+
+&lt;p&gt;Next, we&amp;rsquo;ll provide SET with our target port. We&amp;rsquo;ll use the exploit default of port 443. SET will then create the payload for us. You&amp;rsquo;ll then be asked if we want to set a filename. For this example, we&amp;rsquo;ll use the default filename, in a real penetration test or spear phishing campaign, you would want to change the filename to something which the victim would actually look at. We select our choice of &lt;code&gt;1&lt;/code&gt;, which represents the &amp;ldquo;Keep the filename, I don&amp;rsquo;t care&amp;rdquo; option.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://deceiveyour.team/images/set-spear-phishing-exploit-creation.png&#34; alt=&#34;SET Spear Phishing Exploit Creation&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, we need to select how we plan to send this — either to one email address or as a large mass-mailer campaign. We&amp;rsquo;ll be sending our phishing email to a single email address by selecting &lt;code&gt;1&lt;/code&gt;. You&amp;rsquo;ll then be asked if you would like to craft the email&amp;rsquo;s design or use a built-in template. For simplicity, we will use a built in template using option &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://deceiveyour.team/images/set-template.png&#34; alt=&#34;SET Email Template&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Available templates:
+&lt;img src=&#34;http://deceiveyour.team/images/set-email-template-options.png&#34; alt=&#34;SET Email Template Options&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For simplicity, we&amp;rsquo;ll choose option &lt;code&gt;10&lt;/code&gt; — Status Report. Depending on the victim, this may or may not work for your needs. Next, we are prompted for the email address we would like to send to. For this, we&amp;rsquo;ll to an example address: deceiver[at]deceiveyour[dot]team. You&amp;rsquo;ll then be asked if you would like to use gmail to send the email or use your own server. We want to use gmail to send our email. We will be prompted for a gmail address and password. You&amp;rsquo;ll then be asked if you want to set this as a high priority email, which more often than not we do not.&lt;/p&gt;
+
+&lt;p&gt;Next, you&amp;rsquo;ll be prompted to start the listener. Next, just wait for the user to open the PDF and you&amp;rsquo;ve successfully gotten a meterpreter shell on the victim&amp;rsquo;s machine.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>93% of Phishing Emails Deliver Ransomware</title>
