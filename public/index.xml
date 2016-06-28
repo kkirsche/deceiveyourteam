@@ -6,8 +6,120 @@
     <description>Recent content on Deceive Your Team</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jun 2016 18:30:44 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jun 2016 14:15:39 -0400</lastBuildDate>
     <atom:link href="http://deceiveyour.team/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How To Setup Metasploit On A Fresh Kali Linux Installation</title>
+      <link>http://deceiveyour.team/post/metasploit-setup-fres-kali-installation/</link>
+      <pubDate>Tue, 28 Jun 2016 14:15:39 -0400</pubDate>
+      
+      <guid>http://deceiveyour.team/post/metasploit-setup-fres-kali-installation/</guid>
+      <description>
+
+&lt;p&gt;Luckily, the team at &lt;a href=&#34;https://www.offensive-security.com/&#34;&gt;Offensive Security&lt;/a&gt; has made the process of setting up &lt;a href=&#34;https://www.metasploit.com/&#34;&gt;Metasploit&lt;/a&gt; on a fresh &lt;a href=&#34;https://www.kali.org/&#34;&gt;Kali Linux&lt;/a&gt; installation nice and simple. By default, Kali linux begins no services which could use network connectivity. This means that databases are not started on boot. To get Metasploit setup with database support, there are three steps:&lt;/p&gt;
+
+&lt;h2 id=&#34;start-the-postgresql-database-service&#34;&gt;Start the PostgreSQL Database Service&lt;/h2&gt;
+
+&lt;p&gt;Metasploit leverages &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; as it&amp;rsquo;s database of choice in Kali. So we start it with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ service postgresql start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that depending on your user&amp;rsquo;s permissions, you may need to use &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Next, we verify that PostgreSQL started correctly using &lt;code&gt;ss -ant | grep 5432&lt;/code&gt;. The &lt;code&gt;ss&lt;/code&gt; command is short for socket statistics, and we use the flags &lt;code&gt;-a&lt;/code&gt;, &lt;code&gt;-n&lt;/code&gt;, and &lt;code&gt;-t&lt;/code&gt;. These flags state the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-a&lt;/code&gt; | &lt;code&gt;--all&lt;/code&gt;: Display all sockets&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-n&lt;/code&gt; | &lt;code&gt;--numeric&lt;/code&gt;: Do not try to resolve service names&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t&lt;/code&gt; | &lt;code&gt;--tcp&lt;/code&gt;: Display only TCP sockets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We then use &lt;code&gt;grep&lt;/code&gt;, a command which is used to search for patterns. When it finds a line which matches a pattern. We are searching for port &lt;code&gt;5432&lt;/code&gt;, the default port of PostgreSQL. The output should look something like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ss -ant | grep 5432
+LISTEN  0 128 127.0.0.1:5432  *:*
+LISTEN  0 128 ::1:5432        :::*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This means that PostgreSQL is successfully started and listening.&lt;/p&gt;
+
+&lt;h2 id=&#34;initialize-the-metasploit-database&#34;&gt;Initialize the Metasploit Database&lt;/h2&gt;
+
+&lt;p&gt;With PostgreSQL successfully started, we need to create the &lt;code&gt;msf&lt;/code&gt; database for Metasploit. This is done with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ msfdb init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;launch-the-metasploit-console&#34;&gt;Launch the Metasploit Console&lt;/h2&gt;
+
+&lt;p&gt;Lastly, with PostgreSQL running and the database setup, we can launch Metasploit&amp;rsquo;s CLI Console and verify that it was able to connect to the database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ msfconsole
+msf &amp;gt; db_status
+[*] postgresql connected to msf
+msf &amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating a New Standard User in Kali Linux From the Command Line</title>
+      <link>http://deceiveyour.team/post/create-new-user-in-kali-linux/</link>
+      <pubDate>Tue, 28 Jun 2016 13:43:33 -0400</pubDate>
+      
+      <guid>http://deceiveyour.team/post/create-new-user-in-kali-linux/</guid>
+      <description>
+
+&lt;p&gt;Why would you want to run &lt;a href=&#34;https://www.kali.org/&#34;&gt;Kali Linux&lt;/a&gt; as a non-root user? Honestly, this comes down to one very nice and simple reason: we don&amp;rsquo;t want to have to worry about breaking Kali. So let&amp;rsquo;s just get right to it.&lt;/p&gt;
+
+&lt;h2 id=&#34;confirm-version-of-kali-linux&#34;&gt;Confirm version of Kali Linux&lt;/h2&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s show what version of Kali Linux and Kernel which I&amp;rsquo;m running on:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ uname -a
+Linux kali 4.6.0-kali1-amd64 #1 SMP Debian 4.6.2-1kali1 (2016-06-17) x86_64 GNU/Linux
+
+$ lsb_release -a
+No LSB modules are available
+Distributor ID: Kali
+Description:    Kali GNU/Linux Rolling
+Release:        kali-rolling
+Codename:       kali-rolling
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, these instructions should work on many older and newer versions of Kali Linux other than this, but this is helpful to show what I am running in case you encounter any issues.&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-a-new-user&#34;&gt;Creating A New User&lt;/h2&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s create a new user. We want this user to have a home directory, specifically in &lt;code&gt;/home/username&lt;/code&gt;, be a part of the &lt;code&gt;sudo&lt;/code&gt; group, and use the &lt;code&gt;/bin/bash&lt;/code&gt; shell. To accomplish this, we use the &lt;code&gt;-m&lt;/code&gt; or &lt;code&gt;--create-home&lt;/code&gt; flag to create a home directory, &lt;code&gt;--gid&lt;/code&gt; or &lt;code&gt;-g&lt;/code&gt; with a comma separated list of groups the user should belong to, and &lt;code&gt;--shell&lt;/code&gt; or &lt;code&gt;-s&lt;/code&gt; to set the shell which the user should use. In the examples below, replace &amp;ldquo;&lt;code&gt;username&lt;/code&gt;&amp;rdquo; with the username which you would like the user to have.&lt;/p&gt;
+
+&lt;p&gt;Long:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ groupadd username
+$ useradd --create-home --gid username --gid sudo --shell /bin/bash username
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Short:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ groupadd username
+$ useradd -m -g username -g sudo -s /bin/bash username
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;setting-a-password-for-the-user&#34;&gt;Setting A Password For The User&lt;/h2&gt;
+
+&lt;p&gt;By default, a new user account is disabled. To enable it, we need to add a password. To do this, we use the &lt;code&gt;passwd username&lt;/code&gt; command followed by the password which we would like created:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ passwd username
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With that, we have a successfully set up new user account for us to use!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Spear Phishing With SET on Kali Linux</title>

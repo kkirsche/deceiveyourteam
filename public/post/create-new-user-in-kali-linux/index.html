@@ -1,24 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en-us">
 
     <head>
-	<meta name="generator" content="Hugo 0.16" />
 
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <meta property="og:title" content=" Deceive Your Team" />
+        <meta property="og:title" content=" Creating a New Standard User in Kali Linux From the Command Line &middot;  Deceive Your Team" />
         <meta property="og:site_name" content="Deceive Your Team" />
-        <meta property="og:url" content="http://deceiveyour.team/" />
+        <meta property="og:url" content="http://deceiveyour.team/post/create-new-user-in-kali-linux/" />
 
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
+        <meta property="og:article:published_time" content="2016-06-28T13:43:33-04:00" />
+        <meta property="og:article:tag" content="kali" />
+        <meta property="og:article:tag" content="basics" />
+        
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@kkirsche" />
+        <meta name="twitter:creator" content="@kkirsche" />
+        <meta name="twitter:title" content="Creating a New Standard User in Kali Linux From the Command Line" />
+        <meta name="twitter:description" content="How to create a new standard user account in Kali Linux Rolling release, using the command line." />
+        <meta name="twitter:url" content="http://deceiveyour.team/post/create-new-user-in-kali-linux/" />
     
 
-        <title> Deceive Your Team</title>
+        <title> Creating a New Standard User in Kali Linux From the Command Line &middot;  Deceive Your Team</title>
 
     
-        <meta name="description" content="" />
+        <meta name="description" content="How to create a new standard user account in Kali Linux Rolling release, using the command line." />
     
 
         <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
@@ -30,12 +41,34 @@
         
 
     
-
-    
         <link href="http://deceiveyour.team/index.xml" rel="alternate" type="application/rss+xml" title="Deceive Your Team" />
     
-        <link rel="canonical" href="http://deceiveyour.team/" />
 
+    
+        <link rel="canonical" href="http://deceiveyour.team/post/create-new-user-in-kali-linux/" />
+
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Creating a New Standard User in Kali Linux From the Command Line",
+        "author": {
+            "@type": "Person",
+            "name": "http://profiles.google.com/?rel=author"
+        },
+        "datePublished": "2016-06-28",
+        "description": "How to create a new standard user account in Kali Linux Rolling release, using the command line.",
+        "wordCount":  317 
+    }
+
+    </script>
+
+    <script type="text/javascript">
+    
+    
+
+    </script>
     
 
     <style>
@@ -58,9 +91,11 @@
 			  	    
             </div>
             <div class="nav-menu">
-              <a class="rss" href="http://deceiveyour.team/index.xml">
+              <a class="rss" href="">
                 <i class="icon-rss"></i>
               </a>
+                
+                <a class="menu" data-action="toc" data-target="toc"><i class="icon-location"></i></a>
                 
                 
                 <a class="menu" data-action="menu" data-target="menu"><i class="icon-menu"></i></a>
@@ -69,127 +104,133 @@
           </nav>
 
 
-	<header id="header" class="header has-cover">
+<main class="content" role="main">
+	<article class="post">
 		<div class="inner">
-			<a class="header-title" href="http://deceiveyour.team/">
-				<h1 class="header-name">Deceive Your Team</h1>
-				
-					<span class="header-description">CyberSecurity Blog</span>
-				
-			</a>
-		</div>
-		
-		<div class="header-cover" style="background-image: url(images/cover.jpg)"></div>
-		
-	</header>
 
-	<div id="post-index" class="container">
+			<div id="push">
 
-		<main class="content" role="main">
+  			<header class="post-header">
+  				<span class="post-meta">
+						<span class="post-date">28 Jun 2016</span> <span class="reading-time">| <span class="estimated-reading-time">2 min.</span> (<span class="word-count">317</span> words)</span></span>
+  				</span>
+  				<div class="clear"></div>
+  				<h1 class="post-title">Creating a New Standard User in Kali Linux From the Command Line</h1>
+  			</header>
 
-			<div class="post-list">
-				<div id="push">
+  			<section class="post-content">
+  				
 
-			
+<p>Why would you want to run <a href="https://www.kali.org/">Kali Linux</a> as a non-root user? Honestly, this comes down to one very nice and simple reason: we don&rsquo;t want to have to worry about breaking Kali. So let&rsquo;s just get right to it.</p>
 
-			
-			  
-<article class="post">
+<h2 id="confirm-version-of-kali-linux">Confirm version of Kali Linux</h2>
 
-	<div class="inner">
-		<a class="post-link" href="http://deceiveyour.team/post/metasploit-setup-fres-kali-installation/"></a>
-		
-		<figure class="post-image">
-			<a href="http://deceiveyour.team/post/metasploit-setup-fres-kali-installation/"><img src="images/metasploit.jpg" alt="" /></a>
-		</figure>
-		
-		<span class="post-meta">
-			<span class="post-date">28 Jun 2016</span>
-		</span>
-		<h2 class="post-title"><a href="http://deceiveyour.team/post/metasploit-setup-fres-kali-installation/">How To Setup Metasploit On A Fresh Kali Linux Installation</a></h2>
-		<p class="post-excerpt">How To Setup Metasploit On A Fresh Kali Linux Installation&hellip;</p>
-		<span class="post-more"><a href="http://deceiveyour.team/post/metasploit-setup-fres-kali-installation/">Read More <i class="icon-arrow-right"></i></a></span>
-	</div>
-</article>
+<p>First, let&rsquo;s show what version of Kali Linux and Kernel which I&rsquo;m running on:</p>
 
-			
-			  
-<article class="post">
+<pre><code>$ uname -a
+Linux kali 4.6.0-kali1-amd64 #1 SMP Debian 4.6.2-1kali1 (2016-06-17) x86_64 GNU/Linux
 
-	<div class="inner">
-		<a class="post-link" href="http://deceiveyour.team/post/create-new-user-in-kali-linux/"></a>
-		
-		<figure class="post-image">
-			<a href="http://deceiveyour.team/post/create-new-user-in-kali-linux/"><img src="images/kali.png" alt="" /></a>
-		</figure>
-		
-		<span class="post-meta">
-			<span class="post-date">28 Jun 2016</span>
-		</span>
-		<h2 class="post-title"><a href="http://deceiveyour.team/post/create-new-user-in-kali-linux/">Creating a New Standard User in Kali Linux From the Command Line</a></h2>
-		<p class="post-excerpt">How to create a new standard user account in Kali Linux Rolling release, using the command line.&hellip;</p>
-		<span class="post-more"><a href="http://deceiveyour.team/post/create-new-user-in-kali-linux/">Read More <i class="icon-arrow-right"></i></a></span>
-	</div>
-</article>
+$ lsb_release -a
+No LSB modules are available
+Distributor ID: Kali
+Description:    Kali GNU/Linux Rolling
+Release:        kali-rolling
+Codename:       kali-rolling
+</code></pre>
 
-			
-			  
-<article class="post">
+<p>Now, these instructions should work on many older and newer versions of Kali Linux other than this, but this is helpful to show what I am running in case you encounter any issues.</p>
 
-	<div class="inner">
-		<a class="post-link" href="http://deceiveyour.team/post/spear-phishing-with-set/"></a>
-		
-		<figure class="post-image">
-			<a href="http://deceiveyour.team/post/spear-phishing-with-set/"><img src="images/spear-phishing.png" alt="" /></a>
-		</figure>
-		
-		<span class="post-meta">
-			<span class="post-date">21 Jun 2016</span>
-		</span>
-		<h2 class="post-title"><a href="http://deceiveyour.team/post/spear-phishing-with-set/">Spear Phishing With SET on Kali Linux</a></h2>
-		<p class="post-excerpt">How to go spear phishing on Kali Linux with the Social Engineering Toolkit&hellip;</p>
-		<span class="post-more"><a href="http://deceiveyour.team/post/spear-phishing-with-set/">Read More <i class="icon-arrow-right"></i></a></span>
-	</div>
-</article>
+<h2 id="creating-a-new-user">Creating A New User</h2>
 
-			
-			  
-<article class="post">
+<p>Now, let&rsquo;s create a new user. We want this user to have a home directory, specifically in <code>/home/username</code>, be a part of the <code>sudo</code> group, and use the <code>/bin/bash</code> shell. To accomplish this, we use the <code>-m</code> or <code>--create-home</code> flag to create a home directory, <code>--gid</code> or <code>-g</code> with a comma separated list of groups the user should belong to, and <code>--shell</code> or <code>-s</code> to set the shell which the user should use. In the examples below, replace &ldquo;<code>username</code>&rdquo; with the username which you would like the user to have.</p>
 
-	<div class="inner">
-		<a class="post-link" href="http://deceiveyour.team/post/93-percent-phishing-ransomware/"></a>
-		
-		<figure class="post-image">
-			<a href="http://deceiveyour.team/post/93-percent-phishing-ransomware/"><img src="images/ransomware.jpg" alt="" /></a>
-		</figure>
-		
-		<span class="post-meta">
-			<span class="post-date">17 Jun 2016</span>
-		</span>
-		<h2 class="post-title"><a href="http://deceiveyour.team/post/93-percent-phishing-ransomware/">93% of Phishing Emails Deliver Ransomware</a></h2>
-		<p class="post-excerpt">PhishMe states that 93% of phishing emails collected were intended to infect victims with ransomware.&hellip;</p>
-		<span class="post-more"><a href="http://deceiveyour.team/post/93-percent-phishing-ransomware/">Read More <i class="icon-arrow-right"></i></a></span>
-	</div>
-</article>
+<p>Long:</p>
 
-			
+<pre><code>$ groupadd username
+$ useradd --create-home --gid username --gid sudo --shell /bin/bash username
+</code></pre>
 
-				</div>
+<p>Short:</p>
+
+<pre><code>$ groupadd username
+$ useradd -m -g username -g sudo -s /bin/bash username
+</code></pre>
+
+<h2 id="setting-a-password-for-the-user">Setting A Password For The User</h2>
+
+<p>By default, a new user account is disabled. To enable it, we need to add a password. To do this, we use the <code>passwd username</code> command followed by the password which we would like created:</p>
+
+<pre><code>$ passwd username
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+</code></pre>
+
+<p>With that, we have a successfully set up new user account for us to use!</p>
+
+  			</section>
+
+  			<footer class="post-footer">
+  				<div class="post-tags">
+            
+            
+                <a href="http://deceiveyour.team//tags/kali/">kali</a>
+            
+                <a href="http://deceiveyour.team//tags/basics/">basics</a>
+            
+            
+  				</div>
+  				<div class="post-share">
+  					<a class="icon-twitter" href="https://twitter.com/share?text=Creating%20a%20New%20Standard%20User%20in%20Kali%20Linux%20From%20the%20Command%20Line&url=http%3a%2f%2fdeceiveyour.team%2fpost%2fcreate-new-user-in-kali-linux%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  						<span>Twitter</span>
+  					</a>
+  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fdeceiveyour.team%2fpost%2fcreate-new-user-in-kali-linux%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  						<span>Facebook</span>
+  					</a>
+  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fdeceiveyour.team%2fpost%2fcreate-new-user-in-kali-linux%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+  						<span>Google+</span>
+  					</a>
+  				</div>
+  			</footer>
+
+  			<aside class="post-comments">
+    
+    
+    
+</aside>
+
+
 			</div>
 
-			<nav id="pagination" class="pagination" role="pagination">
-	<div class="inner">
-	
-		<span class="pagination-info">Page 1 of 1</span>
-	
-		<div class="clear"></div>
-	</div>
-</nav>
+			<nav class="post-nav">
+				
+					<a class="post-nav-item post-nav-next" href="http://deceiveyour.team/post/metasploit-setup-fres-kali-installation/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">How To Setup Metasploit On A Fresh Kali Linux Installation</h4>
+								<p class="post-nav-excerpt">How To Setup Metasploit On A Fresh Kali Linux Installation&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				
+					<a class="post-nav-item post-nav-prev" href="http://deceiveyour.team/post/spear-phishing-with-set/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">Spear Phishing With SET on Kali Linux</h4>
+								<p class="post-nav-excerpt">How to go spear phishing on Kali Linux with the Social Engineering Toolkit&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				<div class="clear"></div>
+			</nav>
 
-
-		</main>
-
-	</div>
+		</div>
+	</article>
+</main>
 
 				<div id="body-class" style="display: none;"></div>
 				<footer id="footer">
@@ -224,6 +265,25 @@
 </div>
 
 				
+<div id="tocMenu" data-target="toc">
+    <div class="menu-header">
+        <span class="menu-label">Menu</span>
+        <a class="menu-close" data-action="toc" data-target="toc"></a>
+    </div>
+    <div id="toc" class="menu-list">
+        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#confirm-version-of-kali-linux">Confirm version of Kali Linux</a></li>
+<li><a href="#creating-a-new-user">Creating A New User</a></li>
+<li><a href="#setting-a-password-for-the-user">Setting A Password For The User</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
 
 				<div class="overlay"></div>
 			</div>

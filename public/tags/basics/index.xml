@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basics on Deceive Your Team</title>
+    <link>http://deceiveyour.team/tags/basics/</link>
+    <description>Recent content in Basics on Deceive Your Team</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jun 2016 13:43:33 -0400</lastBuildDate>
+    <atom:link href="http://deceiveyour.team/tags/basics/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Creating a New Standard User in Kali Linux From the Command Line</title>
+      <link>http://deceiveyour.team/post/create-new-user-in-kali-linux/</link>
+      <pubDate>Tue, 28 Jun 2016 13:43:33 -0400</pubDate>
+      
+      <guid>http://deceiveyour.team/post/create-new-user-in-kali-linux/</guid>
+      <description>
+
+&lt;p&gt;Why would you want to run &lt;a href=&#34;https://www.kali.org/&#34;&gt;Kali Linux&lt;/a&gt; as a non-root user? Honestly, this comes down to one very nice and simple reason: we don&amp;rsquo;t want to have to worry about breaking Kali. So let&amp;rsquo;s just get right to it.&lt;/p&gt;
+
+&lt;h2 id=&#34;confirm-version-of-kali-linux&#34;&gt;Confirm version of Kali Linux&lt;/h2&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s show what version of Kali Linux and Kernel which I&amp;rsquo;m running on:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ uname -a
+Linux kali 4.6.0-kali1-amd64 #1 SMP Debian 4.6.2-1kali1 (2016-06-17) x86_64 GNU/Linux
+
+$ lsb_release -a
+No LSB modules are available
+Distributor ID: Kali
+Description:    Kali GNU/Linux Rolling
+Release:        kali-rolling
+Codename:       kali-rolling
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, these instructions should work on many older and newer versions of Kali Linux other than this, but this is helpful to show what I am running in case you encounter any issues.&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-a-new-user&#34;&gt;Creating A New User&lt;/h2&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s create a new user. We want this user to have a home directory, specifically in &lt;code&gt;/home/username&lt;/code&gt;, be a part of the &lt;code&gt;sudo&lt;/code&gt; group, and use the &lt;code&gt;/bin/bash&lt;/code&gt; shell. To accomplish this, we use the &lt;code&gt;-m&lt;/code&gt; or &lt;code&gt;--create-home&lt;/code&gt; flag to create a home directory, &lt;code&gt;--gid&lt;/code&gt; or &lt;code&gt;-g&lt;/code&gt; with a comma separated list of groups the user should belong to, and &lt;code&gt;--shell&lt;/code&gt; or &lt;code&gt;-s&lt;/code&gt; to set the shell which the user should use. In the examples below, replace &amp;ldquo;&lt;code&gt;username&lt;/code&gt;&amp;rdquo; with the username which you would like the user to have.&lt;/p&gt;
+
+&lt;p&gt;Long:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ groupadd username
+$ useradd --create-home --gid username --gid sudo --shell /bin/bash username
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Short:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ groupadd username
+$ useradd -m -g username -g sudo -s /bin/bash username
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;setting-a-password-for-the-user&#34;&gt;Setting A Password For The User&lt;/h2&gt;
+
+&lt;p&gt;By default, a new user account is disabled. To enable it, we need to add a password. To do this, we use the &lt;code&gt;passwd username&lt;/code&gt; command followed by the password which we would like created:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ passwd username
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With that, we have a successfully set up new user account for us to use!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
