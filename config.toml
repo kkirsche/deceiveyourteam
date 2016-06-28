@@ -9,6 +9,7 @@ title = "Deceive Your Team"
   gravatarHash = "8236e6bf25c6e147dd610fe419200fe8"
   twitter = "kkirsche"
   cover = "images/cover.jpg"
+  disqus = true
 
   [[menu.main]]
       name = "1. Home"
